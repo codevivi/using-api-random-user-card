@@ -36,6 +36,8 @@ h1 {
   max-width: 730px;
   min-height: 395px;
   margin: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
   background-color: #ffffff;
   color: #999999;
   position: relative;
@@ -54,18 +56,16 @@ h1 {
   border-radius: 3px 3px 0 0;
 }
 .user-card-content {
-  position: absolute;
+  position: relative;
   top: 0;
   bottom: 100px;
   width: 100%;
-  height: 100%;
-  min-height: 100%;
+  min-height: 375px;
   padding-top: 20px;
   border-radius: 3px;
 }
 .user-profile-picture-wrapper {
   width: fit-content;
-  height: fit-content;
   margin: auto;
   margin-bottom: 1.9rem;
   border: 1px solid #bfbfbf;
@@ -80,23 +80,71 @@ h1 {
 }
 .user-info-description {
   font-size: 0.9rem;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.5rem;
 }
 .user-info {
   color: #2c2e31;
   font-size: 1.5rem;
+  margin-bottom: 15px;
 }
 .user-buttons-wrapper {
   padding-top: 5px;
   width: 100%;
-  display: inline-flex;
+  max-width: 525px;
+  margin: auto;
+  display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
-.change-user-info-btn {
+.user-card .sprite-btn {
   height: 48px;
   width: 40px;
-  margin: 25px;
+  min-width: 40px;
+  min-height: 48px;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  background-color: transparent;
+  background-image: url("./assets/card_icons.png");
+  background-size: 956% auto;
+  background-repeat: no-repeat;
+  border: none;
+  transition: all 0.3s ease-out;
+}
+
+.user-card .sprite-btn:hover {
+  cursor: pointer;
+}
+
+.user-card .sprite-btn[data-info="name"] {
+  background-position-x: 0;
+  background-position-y: 100%;
+}
+.user-card .sprite-btn[data-info="email"] {
+  background-position-x: 20%;
+  background-position-y: 100%;
+}
+
+.user-card .sprite-btn[data-info="birthday"] {
+  background-position-x: 40%;
+  background-position-y: 100%;
+}
+.user-card .sprite-btn[data-info="address"] {
+  background-position-x: 60%;
+  background-position-y: 100%;
+}
+.user-card .sprite-btn[data-info="number"] {
+  background-position-x: 80%;
+  background-position-y: 100%;
+}
+.user-card .sprite-btn[data-info="password"] {
+  background-position-x: 100%;
+  background-position-y: 100%;
+  margin-right: auto;
+}
+.user-card .sprite-btn.active {
+  background-position-y: 0;
 }
 @media screen and (min-width: 756px) {
   h1 {

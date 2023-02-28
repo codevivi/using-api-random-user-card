@@ -134,7 +134,7 @@ h1 {
   background-position-x: 60%;
   background-position-y: 100%;
 }
-.user-card .sprite-btn[data-info="number"] {
+.user-card .sprite-btn[data-info="phone"] {
   background-position-x: 80%;
   background-position-y: 100%;
 }

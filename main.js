@@ -19,7 +19,6 @@ function getUserAndRenderCard() {
   fetch("https://randomuser.me/api/?inc=name,email,dob,location,phone,login,picture")
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       let user = data.results[0];
       renderUserCard(user);
     })
@@ -55,27 +54,27 @@ const getFromUser = {
 function resetCard() {
   getNewUserBtn.blur();
   userInfo.textContent = "...";
-  userInfoDesc.textContent = "My name is";
-  // userImg.src = "./assets/white-placeholder.png";
-  // userImg.alt = "";
-  activeBtn = activateBtn(infoButtons[0]);
 }
 
 function renderUserCard(user) {
   userImg.src = getFromUser.picture(user);
-  userInfo.textContent = getFromUser.name(user);
+
   for (let i = 0; i < infoButtons.length; i++) {
     let btn = infoButtons[i];
     btn.setAttribute("data-output", getFromUser[btn.dataset.info](user));
     btn.setAttribute("onmouseenter", "changeInfo(event)");
   }
+  changeInfoByButtonData(activeBtn);
 }
 
 function changeInfo(e) {
   let btn = e.target;
+  changeInfoByButtonData(btn);
+}
+function changeInfoByButtonData(btn) {
   let output = btn.dataset.output;
   userInfo.textContent = output;
-  userInfoDesc.textContent = e.target.dataset.desc;
+  userInfoDesc.textContent = btn.dataset.desc;
   activeBtn = activateBtn(btn);
 }
 

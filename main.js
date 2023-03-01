@@ -55,6 +55,7 @@ function resetCard() {
   userInfo.textContent = "...";
   userInfoDesc.textContent = "My name is";
   userImg.src = "./assets/white-placeholder.png";
+  userImg.alt = "";
   activeBtn = activateBtn(infoButtons[0]);
 }
 

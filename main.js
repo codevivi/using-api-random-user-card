@@ -7,7 +7,7 @@ const infoButtons = document.querySelectorAll(`.user-card .sprite-btn`);
 const getNewUserBtn = document.getElementById("get-new-btn");
 let activeBtn = infoButtons[0];
 getNewUserBtn.addEventListener("click", newUser);
-
+///checking if updates on hithub
 getUserAndRenderCard();
 
 function newUser() {

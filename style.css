@@ -122,6 +122,9 @@ h1 {
   justify-content: space-between;
   flex-wrap: wrap;
 }
+.user-buttons-wrapper div:hover {
+  cursor: pointer;
+}
 .user-card .sprite-btn {
   height: 48px;
   width: 40px;
@@ -136,10 +139,6 @@ h1 {
   background-repeat: repeat;
   border: none;
   transition: all 0.3s ease-out;
-}
-
-.user-card .sprite-btn:hover {
-  cursor: pointer;
 }
 
 .user-card .sprite-btn[data-info="name"] {

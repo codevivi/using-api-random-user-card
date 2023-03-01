@@ -19,6 +19,7 @@ function getUserAndRenderCard() {
   fetch("https://randomuser.me/api/?inc=name,email,dob,location,phone,login,picture")
     .then((res) => res.json())
     .then((data) => {
+      console.log(data);
       let user = data.results[0];
       renderUserCard(user);
     })
@@ -50,12 +51,13 @@ const getFromUser = {
     return user.picture.large;
   },
 };
+
 function resetCard() {
   getNewUserBtn.blur();
   userInfo.textContent = "...";
   userInfoDesc.textContent = "My name is";
-  userImg.src = "./assets/white-placeholder.png";
-  userImg.alt = "";
+  // userImg.src = "./assets/white-placeholder.png";
+  // userImg.alt = "";
   activeBtn = activateBtn(infoButtons[0]);
 }
 

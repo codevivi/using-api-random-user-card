@@ -49,8 +49,6 @@ function renderUserCard(user) {
   userInfo.textContent = getFromUser.name(user);
   for (let i = 0; i < infoButtons.length; i++) {
     let btn = infoButtons[i];
-    console.log(btn);
-    console.log(btn.dataset.info);
     btn.setAttribute("data-output", getFromUser[btn.dataset.info](user));
     btn.setAttribute("onmouseenter", "changeInfo(event)");
   }
@@ -62,6 +60,10 @@ function changeInfo(e) {
   userInfo.textContent = output;
   userInfoDesc.textContent = e.target.dataset.desc;
   activeBtn.classList.remove("active");
-  btn.classList.add("active");
-  activeBtn = btn;
+  btn.classList.add("active"); //pointer events none
+  let activePos = window.getComputedStyle(activeBtn).getPropertyValue("background-position-y").slice(0, -1);
+  let currentPos = window.getComputedStyle(btn).getPropertyValue("background-position-y").slice(0, -1);
+  btn.style.backgroundPositionY = `${Number(currentPos) + 100}%`;
+  activeBtn.style.backgroundPositionY = `${Number(activePos) - 100}%`;
+  activeBtn = btn; //save active button
 }
